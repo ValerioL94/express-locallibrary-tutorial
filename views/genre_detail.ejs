@@ -1,26 +1,25 @@
 <%- contentFor('main') %>
 
-          <h1><%=genre.name%></h1>
-          <div style="margin-left: 20px; margin-top: 20px">
-            <h4>Books</h4>
-            <% if (genre_books.length) { %>
-            <dl>
-              <% genre_books.forEach(book => { %>
-              <dt>
-                <a href="<%=book.url%>"><%=book.title%></a>
-              </dt>
-              <dd><%=book.summary%></dd>
-              <%}) %>
-            </dl>
-            <% } else { %>
-            <p>This genre has no books.</p>
-            <% } %>
-          </div>
-          <hr />
-          <p>
-            <a href="<%= genre.url %>/delete">Delete Genre</a>
-          </p>
-          <p>
-            <a href="<%= genre.url %>/update">Update Genre</a>
-          </p>
-        
+<h1><%=genre.name%></h1>
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Books</h4>
+  <% if (genre_books.length) { %>
+  <dl>
+    <% genre_books.forEach(book => { %>
+    <dt>
+      <a href="<%=book.url%>"><%=book.title%></a>
+    </dt>
+    <dd><%=book.summary%></dd>
+    <%}) %>
+  </dl>
+  <% } else { %>
+  <p>This genre has no books.</p>
+  <% } %>
+</div>
+<hr />
+<p>
+  <a href="<%= genre.url %>/delete">Delete Genre</a>
+</p>
+<p>
+  <a href="<%= genre.url %>/update">Update Genre</a>
+</p>

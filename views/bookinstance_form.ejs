@@ -1,65 +1,63 @@
 <%- contentFor('main') %>
 
-          <h1><%= title %></h1>
-          <form method="post">
-            <div class="form-group">
-              <label for="book">Book: </label>
-              <select name="book" id="book" class="form-control" required>
-                <option value="">--Please select a book--</option>
-                <% book_list.forEach(book => { %>
-                <% if ( typeof selected_book !== 'undefined' && selected_book.toString()===book._id.toString()) { %>
-                <option value="<%= book._id %>" selected>
-                  <%= book.title %>
-                </option>
-                <% } else { %>
-                <option value="<%= book._id %>"><%= book.title %></option>
-                <% } %>
-                <% }) %>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="imprint">Imprint: </label>
-              <input
-                type="text"
-                id="imprint"
-                class="form-control"
-                placeholder="Publisher and date information"
-                name="imprint"
-                required
-                value="<%= typeof bookinstance !== 'undefined' ? bookinstance.imprint : '' %>"
-              />
-            </div>
-            <div class="form-group">
-              <label for="due_back">Date when book available: </label>
-              <input
-                type="date"
-                id="due_back"
-                class="form-control"
-                name="due_back"
-                value="<%= typeof bookinstance !== 'undefined' ? bookinstance.due_back_yyyy_mm_dd : '' %>"
-              />
-            </div>
-            <div class="form-group">
-              <label for="status">Status: </label>
-              <select name="status" id="status" class="form-control" required>
-                <option value="">--Please select a status--</option>
-                <% ['Maintenance', 'Available', 'Loaned',
-                'Reserved'].forEach(val => { %>
-                <% if (typeof bookinstance === 'undefined' || bookinstance.status!=val) { %>
-                <option value="<%= val %>"><%= val %></option>
-                <% } else { %>
-                <option value="<%= val %>" selected><%= val %></option>
-                <% } %>
-                <% }) %>
-              </select>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit</button>
-          </form>
-          <% if (typeof errors !== 'undefined') { %>
-          <ul>
-            <% errors.forEach(error => { %>
-            <li><%= error.msg %></li>
-            <% }) %>
-          </ul>
-          <% } %>
-      
+<h1><%= title %></h1>
+<form method="post">
+  <div class="form-group">
+    <label for="book">Book: </label>
+    <select name="book" id="book" class="form-control" required>
+      <option value="">--Please select a book--</option>
+      <% book_list.forEach(book => { %>
+      <% if ( typeof selected_book !== 'undefined' && selected_book.toString()===book._id.toString()) { %>
+      <option value="<%= book._id %>" selected>
+        <%= book.title %>
+      </option>
+      <% } else { %>
+      <option value="<%= book._id %>"><%= book.title %></option>
+      <% } %>
+      <% }) %>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="imprint">Imprint: </label>
+    <input
+      type="text"
+      id="imprint"
+      class="form-control"
+      placeholder="Publisher and date information"
+      name="imprint"
+      required
+      value="<%= typeof bookinstance !== 'undefined' ? bookinstance.imprint : '' %>"
+    />
+  </div>
+  <div class="form-group">
+    <label for="due_back">Date when book available: </label>
+    <input
+      type="date"
+      id="due_back"
+      class="form-control"
+      name="due_back"
+      value="<%= typeof bookinstance !== 'undefined' ? bookinstance.due_back_yyyy_mm_dd : '' %>"
+    />
+  </div>
+  <div class="form-group">
+    <label for="status">Status: </label>
+    <select name="status" id="status" class="form-control" required>
+      <option value="">--Please select a status--</option>
+      <% ['Maintenance', 'Available', 'Loaned', 'Reserved'].forEach(val => { %>
+      <% if (typeof bookinstance === 'undefined' || bookinstance.status!=val) { %>
+      <option value="<%= val %>"><%= val %></option>
+      <% } else { %>
+      <option value="<%= val %>" selected><%= val %></option>
+      <% } %>
+      <% }) %>
+    </select>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<% if (typeof errors !== 'undefined') { %>
+<ul>
+  <% errors.forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>

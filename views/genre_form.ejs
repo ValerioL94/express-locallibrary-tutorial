@@ -1,26 +1,25 @@
 <%- contentFor('main') %>
 
-          <h1><%= title %></h1>
-          <form method="post">
-            <div class="form-group">
-              <label for="name">Genre: </label>
-              <input
-                type="text"
-                id="name"
-                class="form-control"
-                placeholder="Fantasy, Poetry etc."
-                name="name"
-                required
-                value="<%= typeof genre !=='undefined' ? genre.name : '' %>"
-              />
-              <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
-          </form>
-          <% if (typeof errors !== 'undefined') { %>
-          <ul>
-            <% errors.forEach(error => { %>
-            <li><%= error.msg %></li>
-            <% }) %>
-          </ul>
-          <% } %>
-       
+<h1><%= title %></h1>
+<form method="post">
+  <div class="form-group">
+    <label for="name">Genre: </label>
+    <input
+      type="text"
+      id="name"
+      class="form-control"
+      placeholder="Fantasy, Poetry etc."
+      name="name"
+      required
+      value="<%= typeof genre !=='undefined' ? genre.name : '' %>"
+    />
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>
+<% if (typeof errors !== 'undefined') { %>
+<ul>
+  <% errors.forEach(error => { %>
+  <li><%= error.msg %></li>
+  <% }) %>
+</ul>
+<% } %>

@@ -1,38 +1,36 @@
 <%- contentFor('main') %>
 
-          <h1>
-            Delete Genre:
-            <%= genre.name %>
-          </h1>
-          <% if (genre_books.length) { %>
-          <p>
-            <strong
-              >Delete the following books before attempting to delete this
-              genre.</strong
-            >
-          </p>
-          <div style="margin-left: 20px; margin-top: 20px">
-            <h4>Books</h4>
-            <dl>
-              <% genre_books.forEach(book => { %>
-              <dt><a href="<%= book.url %>"><%= book.title %></a></dt>
-              <dd><%= book.summary %></dd>
-              <% }) %>
-            </dl>
-          </div>
-          <% } else { %>
-          <p>Do you really want to delete this Genre?</p>
-          <form method="post">
-            <div class="form-group">
-              <input
-                type="hidden"
-                id="genreid"
-                class="form-control"
-                name="genreid"
-                value="<%= genre._id %>"
-              />
-            </div>
-            <button class="btn btn-primary" type="submit">Delete</button>
-          </form>
-          <% } %>
-        
+<h1>
+  Delete Genre:
+  <%= genre.name %>
+</h1>
+<% if (genre_books.length) { %>
+<p>
+  <strong
+    >Delete the following books before attempting to delete this genre.</strong
+  >
+</p>
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Books</h4>
+  <dl>
+    <% genre_books.forEach(book => { %>
+    <dt><a href="<%= book.url %>"><%= book.title %></a></dt>
+    <dd><%= book.summary %></dd>
+    <% }) %>
+  </dl>
+</div>
+<% } else { %>
+<p>Do you really want to delete this Genre?</p>
+<form method="post">
+  <div class="form-group">
+    <input
+      type="hidden"
+      id="genreid"
+      class="form-control"
+      name="genreid"
+      value="<%= genre._id %>"
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Delete</button>
+</form>
+<% } %>
