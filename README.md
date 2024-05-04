@@ -1,7 +1,7 @@
 # express-locallibrary-tutorial
 
-Following <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website">THIS</a> awesome MDN tutorial I recreated a local library using express.
+- Following <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website">THIS</a> awesome MDN tutorial I recreated a local library using express.
 
-While I tried to strictly follow the tutorial, I rewrote all the views using using ejs instead of pug.
+- While the tutorial uses pug as view engine, I rewrote it using ejs.
 
-Finally with the help of the package <a href="https://www.npmjs.com/package/express-ejs-layouts"> express-ejs-layouts</a> I added a common layout to every page to avoid redundancy.
+- I used <a href="https://www.npmjs.com/package/express-ejs-layouts">express-ejs-layouts</a> to add a common layout for every page and <a href="https://www.npmjs.com/package/prettier-plugin-ejs">prettier-plugin-ejs</a> to format the files.
