@@ -1,0 +1,99 @@
+<%- contentFor('main') %>
+
+          <h1><%= title %></h1>
+          <form method="post">
+            <div class="form-group">
+              <label for="title">Title: </label>
+              <input
+                type="text"
+                id="title"
+                class="form-control"
+                placeholder="Name of book"
+                name="title"
+                required
+                value="<%= typeof book !=='undefined' ? book.title : '' %>"
+              />
+              <label for="author">Author: </label>
+              <select name="author" id="author" class="form-control" required>
+                <option value="">--Please select an author--</option>
+                <% authors.forEach(author => { %>
+                <% if (typeof book !=='undefined') { %>
+                <% if (author._id.toString()===book.author._id.toString()) { %>
+                <option value="<%=author._id%>" selected>
+                  <%= author.name %>
+                </option>
+                <% } else { %>
+                <option value="<%= author._id %>"><%= author.name %></option>
+                <% } %>
+                <% } else {  %>
+                <option value="<%= author._id %>"><%= author.name %></option>
+                <% } %>
+                <% }) %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="summary">Summary: </label>
+              <textarea
+                name="summary"
+                id="summary"
+                class="form-control"
+                placeholder="Summary"
+                required
+              >
+<%= typeof book !=='undefined' ? book.summary : '' %></textarea
+              >
+            </div>
+            <div class="form-group">
+              <label for="isbn">ISBN: </label>
+              <input
+                type="text"
+                id="isbn"
+                class="form-control"
+                name="isbn"
+                placeholder="ISBN13"
+                value="<%= typeof book !=='undefined' ? book.isbn : '' %>"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Genre: </label>
+              <div>
+                <% genres.forEach(genre => { %>
+                <div style="display: inline; padding-right: 10px">
+                  <label for="<%= genre._id %>">&nbsp;<%= genre.name %></label>
+                  <% if (genre.checked) { %>
+                  <input
+                    type="checkbox"
+                    class="checkbox-input"
+                    name="genre"
+                    ,
+                    id="<%= genre._id %>"
+                    ,
+                    value="<%= genre._id %>"
+                    checked
+                  />
+                  <% } else { %>
+                  <input
+                    type="checkbox"
+                    class="checkbox-input"
+                    name="genre"
+                    ,
+                    id="<%= genre._id %>"
+                    ,
+                    value="<%= genre._id %>"
+                  />
+                  <% } %>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </form>
+          <% if (typeof errors !== 'undefined') { %>
+          <ul>
+            <% errors.forEach(error => { %>
+            <li><%= error.msg %></li>
+            <% }) %>
+          </ul>
+          <% } %>
+      

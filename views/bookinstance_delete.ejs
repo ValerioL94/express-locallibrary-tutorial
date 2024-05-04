@@ -1,0 +1,49 @@
+<%- contentFor('main') %>
+
+          <h1><%= title %></h1>
+          <p>
+            <strong>Do you really want to delete this Book instance?</strong>
+          </p>
+          <div style="margin-left: 20px">
+            <p>
+              <strong>ID: </strong
+              ><%= bookinstance._id %>
+            </p>
+            <p>
+              <strong>Title: </strong
+              ><%= bookinstance.book.title %>
+            </p>
+            <p>
+              <strong>Imprint: </strong
+              ><%= bookinstance.imprint %>
+            </p>
+            <p>
+              <strong>Status: </strong>
+              <% if (bookinstance.status=='Available') { %>
+              <span class="text-success"><%= bookinstance.status %></span>
+              <% } else if (bookinstance.status=='Maintenance') { %>
+              <span class="text-danger"><%= bookinstance.status %></span>
+              <% } else { %>
+              <span class="text-warning"><%= bookinstance.status %></span>
+              <% } %>
+            </p>
+            <% if (bookinstance.status!='Available') { %>
+            <p>
+              <strong>Due back: </strong
+              ><%= bookinstance.due_back_formatted %>
+            </p>
+            <% } %>
+          </div>
+          <form method="post">
+            <div class="form-group">
+              <input
+                type="hidden"
+                id="bookinstanceid"
+                class="form-control"
+                name="bookinstanceid"
+                value="<%= bookinstance._id %>"
+              />
+            </div>
+            <button class="btn btn-primary" type="submit">Delete</button>
+          </form>
+       
