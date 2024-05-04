@@ -1,30 +1,29 @@
 <%- contentFor('main') %>
 
-          <h1>
-            Author:
-            <%= author.name %>
-          </h1>
-          <p><%= author.lifespan %></p>
-          <div style="margin-left: 20px; margin-top: 20px">
-            <h4>Books</h4>
-            <% if (author_books.length) { %>
-            <dl>
-              <% author_books.forEach(book => { %>
-              <dt>
-                <a href="<%= book.url %>"><%= book.title %></a>
-              </dt>
-              <dd><%= book.summary %></dd>
-              <% }) %>
-            </dl>
-            <% } else { %>
-            <p>This author has no books</p>
-            <% } %>
-          </div>
-          <hr />
-          <p>
-            <a href="<%= author.url %>/delete">Delete Author</a>
-          </p>
-          <p>
-            <a href="<%= author.url %>/update">Update Author</a>
-          </p>
-        
+<h1>
+  Author:
+  <%= author.name %>
+</h1>
+<p><%= author.lifespan %></p>
+<div style="margin-left: 20px; margin-top: 20px">
+  <h4>Books</h4>
+  <% if (author_books.length) { %>
+  <dl>
+    <% author_books.forEach(book => { %>
+    <dt>
+      <a href="<%= book.url %>"><%= book.title %></a>
+    </dt>
+    <dd><%= book.summary %></dd>
+    <% }) %>
+  </dl>
+  <% } else { %>
+  <p>This author has no books</p>
+  <% } %>
+</div>
+<hr />
+<p>
+  <a href="<%= author.url %>/delete">Delete Author</a>
+</p>
+<p>
+  <a href="<%= author.url %>/update">Update Author</a>
+</p>

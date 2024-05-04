@@ -1,16 +1,15 @@
 <%- contentFor('main') %>
 
-          <h1><%= title %></h1>
-          <% if (author_list.length) { %>
-          <ul>
-            <% author_list.forEach(author => { %>
-            <li>
-              <a href="<%=author.url%>"><%=author.name%></a>
-              (<%= author.lifespan %>)
-            </li>
-            <%}) %>
-          </ul>
-          <% } else { %>
-          <p>There are no authors.</p>
-          <% } %>
-      
+<h1><%= title %></h1>
+<% if (author_list.length) { %>
+<ul>
+  <% author_list.forEach(author => { %>
+  <li>
+    <a href="<%=author.url%>"><%=author.name%></a>
+    (<%= author.lifespan %>)
+  </li>
+  <%}) %>
+</ul>
+<% } else { %>
+<p>There are no authors.</p>
+<% } %>
